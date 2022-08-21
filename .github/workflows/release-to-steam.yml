@@ -17,7 +17,7 @@ jobs:
     #  id: build
     - name: Build with Mikero
       run: |
-        "C:\Program Files (x86)\Mikero Free\DePboTools\bin\pboProject.exe" -P "P:\CGQC" -Mod="D:\SteamLibrary\steamapps\common\Arma 3\!Workshop\@CGQC - Core - WIP"
+        "'C:\Program Files (x86)\Mikero Free\DePboTools\bin\pboProject.exe' -P 'P:\CGQC' -Mod='D:\SteamLibrary\steamapps\common\Arma 3\!Workshop\@CGQC - Core - WIP'"
     - name: Upload mod
       uses: gruppe-adler/action-release-to-steam-ws@v1-beta
       with:
