@@ -3,24 +3,23 @@ on: release
 
 jobs:
   build_addon:
-    name: Upload WIP to workshop
-     if: ${{ !github.event.release.prerelease }} # Do not upload pre releases
-      runs-on: windows-latest
-      steps:
-        - uses: actions/checkout@v1
-        - name: Set VERSION env
-          run: echo VERSION=${GITHUB_REF:11} >> $GITHUB_ENV
-        # Build with Mikero
-        - name: Build with Mikero
-          run: |
-            echo "C:\Program Files (x86)\Mikero Free\DePboTools\bin\pboProject.exe" -P "P:\CGQC" -Mod="D:\SteamLibrary\steamapps\common\Arma 3\!Workshop\@CGQC - Core - WIP"
-        # Upload to Steam Workshop
-        - uses: arma-actions/workshop-upload@v1
-          with:
-            appId: "107410" # default
-            itemId: "2837988642" # Id of item to update
-            contentPath: 'D:\SteamLibrary\steamapps\common\Arma 3\!Workshop\@CGQC - Core - WIP'
-            changelog: "Content of change notes"
-          env:
-            STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
-            STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
+    if: "github.event.release.prerelease"
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set VERSION env
+        run: echo VERSION=${GITHUB_REF:11} >> $GITHUB_ENV
+      # Build with Mikero
+      - name: Build with Mikero
+        run: |
+          echo "C:\Program Files (x86)\Mikero Free\DePboTools\bin\pboProject.exe" -P "P:\CGQC" -Mod="D:\SteamLibrary\steamapps\common\Arma 3\!Workshop\@CGQC - Core - WIP"
+      # Upload to Steam Workshop
+      - uses: arma-actions/workshop-upload@v1
+        with:
+          appId: "107410" # default
+          itemId: "2837988642" # Id of item to update
+          contentPath: 'D:\SteamLibrary\steamapps\common\Arma 3\!Workshop\@CGQC - Core - WIP'
+          changelog: "Content of change notes"
+        env:
+          STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
+          STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
