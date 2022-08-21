@@ -1,7 +1,7 @@
 name: 'Release WIP to Workshop'
 
 on:
-  release.prerelease:
+  release:
 
 jobs:
   build_addon:
