@@ -4,7 +4,7 @@ on:
     types: [published]
 
 jobs:
-  build_addon:
+  build_full:
     runs-on: windows-latest
     if: "!github.event.release.prerelease"
     steps:
