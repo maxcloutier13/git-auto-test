@@ -21,7 +21,7 @@ jobs:
           appId: "107410" # default
           itemId: "2837988642" # Id of item to update
           contentPath: 'D:\SteamLibrary\steamapps\common\Arma 3\!Workshop\@CGQC - Core - WIP'
-          changelog: "Content of change notes"
+          changelog: "${{ github.event.release.body }}"
         env:
           STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
           STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}

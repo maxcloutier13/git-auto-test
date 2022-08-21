@@ -21,7 +21,7 @@ jobs:
           appId: "107410" # default
           itemId: "Core_Release.bat" # Id of item to update
           contentPath: 'P:\Max_dev\Mods\release\@CGQC'
-          changelog: "Content of change notes"
+          changelog: "${{ github.event.release.body }}"
         env:
           STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
           STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
