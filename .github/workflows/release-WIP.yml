@@ -10,6 +10,10 @@ jobs:
     - uses: actions/checkout@v1
     - name: Set VERSION env
       run: echo VERSION=${GITHUB_REF:11} >> $GITHUB_ENV
+    # Build with Mikero
+    - name: Build with Mikero
+      run: |
+        echo "C:\Program Files (x86)\Mikero Free\DePboTools\bin\pboProject.exe" -P "P:\CGQC" -Mod="D:\SteamLibrary\steamapps\common\Arma 3\!Workshop\@CGQC - Core - WIP"
     # Upload to Steam Workshop
     - uses: arma-actions/workshop-upload@v1
       with:
