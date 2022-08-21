@@ -5,6 +5,8 @@ categories:
     labels:
       - 'feature'
       - 'enhancement'
+      - 'feat'
+      - 'ajout'
   - title: ' Bug Fixes'
     labels:
       - 'fix'
