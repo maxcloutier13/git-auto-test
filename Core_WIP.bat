@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\Mikero Free\DePboTools\bin\pboProject.exe" -P "P:\CGQC" -Mod="D:\SteamLibrary\steamapps\common\Arma 3\!Workshop\@CGQC - Core - WIP"
