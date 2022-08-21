@@ -8,15 +8,20 @@ jobs:
     runs-on: windows-latest
     if: "github.event.release.prerelease"
     steps:
-    - name: Checkout repo
-      uses: actions/checkout@v2
-    - name: Upload mod
-      uses: gruppe-adler/action-release-to-steam-ws@v1-beta
-      with:
-        file_id: 2837988642
-        username: "${{ secrets.STEAM_USERNAME }}"
-        password: "${{ secrets.STEAM_PASSWORD }}"
-        path: "${{ 'E:\Pdrive\Max_dev\Mods\release\@CGQC' }}"
-        name: "CGQC - WIP"
-        change_notes_title: "${{ github.event.release.name }}"
-        change_notes: "${{ github.event.release.body }}"
+      # Checkout code
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      # Build code with Mikero
+      - name: Build with Mikero
+        run: |
+          Core_WIP.bat
+      # Upload on workshop
+      - name: steam-workshop-upload
+        uses: weilbyte/steam-workshop-upload@v1
+        with:
+          appid: 107410 # Game's Steam App ID
+          itemid: 2837988642 # Your mod's Steam Workshop ID
+          path: "release" # Path to your mod's folder from repository root
+        env:
+          STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }} # Your Steam username
+          STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }} # Your Steam password
