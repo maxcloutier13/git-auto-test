@@ -17,14 +17,14 @@ jobs:
     #  id: build
     - name: Build with Mikero
       run: |
-        "'C:\Program Files (x86)\Mikero Free\DePboTools\bin\pboProject.exe' -P 'P:\CGQC' -Mod='D:\SteamLibrary\steamapps\common\Arma 3\!Workshop\@CGQC - Core - WIP'"
+        echo "C:\Program Files (x86)\Mikero Free\DePboTools\bin\pboProject.exe" -P "P:\CGQC" -Mod="D:\SteamLibrary\steamapps\common\Arma 3\!Workshop\@CGQC - Core - WIP"
     - name: Upload mod
       uses: gruppe-adler/action-release-to-steam-ws@v1-beta
       with:
         file_id: 2837988642
         username: "${{ secrets.STEAM_USERNAME }}"
         password: "${{ secrets.STEAM_PASSWORD }}"
-        path: "${{ secrets.CORE_WIP_FOLDER }}"
+        path: "D:\SteamLibrary\steamapps\common\Arma 3\!Workshop\@CGQC - Core - WIP"
         name: CGQC_Core
         change_notes_title: "${{ github.event.release.name }}"
         change_notes: "${{ github.event.release.body }}"
