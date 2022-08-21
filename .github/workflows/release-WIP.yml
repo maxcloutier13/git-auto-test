@@ -14,7 +14,7 @@ jobs:
       # Build with Mikero
       - name: Build with Mikero
         run: |
-          C:\Core_WIP.bat
+          "C:\Core_WIP.bat"
       # Upload to Steam Workshop
       - uses: arma-actions/workshop-upload@v1
         with:
