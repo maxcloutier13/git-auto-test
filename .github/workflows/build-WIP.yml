@@ -9,4 +9,4 @@ jobs:
     steps:
       - name: Build with Mikero
         run: |
-          "C:\Core_WIP.bat"
+          C:\Core_WIP.bat
