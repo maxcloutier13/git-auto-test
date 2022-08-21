@@ -12,9 +12,9 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
       # Build code with Mikero
-      - name: Build with Mikero
-        run: |
-          Core_WIP.bat
+      #- name: Build with Mikero
+      #  run: |
+      #    Core_WIP.bat
       # Upload on workshop
       - name: steam-workshop-upload
         uses: weilbyte/steam-workshop-upload@v1
