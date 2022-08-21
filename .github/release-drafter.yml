@@ -6,6 +6,7 @@ categories:
       - "feature"
       - "enhancement"
       - "feat"
+      - "Feat"
       - "ajout"
   - title: " Bug Fixes"
     labels:
