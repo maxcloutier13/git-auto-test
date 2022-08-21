@@ -3,7 +3,6 @@ on: release
 
 jobs:
   build_addon:
-    if: "github.event.release.prerelease"
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v1
