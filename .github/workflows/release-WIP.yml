@@ -16,7 +16,7 @@ jobs:
         file_id: 2837988642
         username: "${{ secrets.STEAM_USERNAME }}"
         password: "${{ secrets.STEAM_PASSWORD }}"
-        path: 'D:\SteamLibrary\steamapps\common\Arma 3\!Workshop\@CGQC - Core - WIP'
-        name: "CGQC - Core - WIP"
+        path: "${{ D:\SteamLibrary\steamapps\common\Arma 3\!Workshop\@CGQC - Core - WIP }}"
+        name: "${{ steps.build.outputs.mod_name }}"
         change_notes_title: "${{ github.event.release.name }}"
         change_notes: "${{ github.event.release.body }}"
