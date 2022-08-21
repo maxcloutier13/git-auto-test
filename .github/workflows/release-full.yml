@@ -1,4 +1,4 @@
-name: "Release WIP to Workshop"
+name: "Release Full to Workshop"
 on:
   release:
     types: [published]
@@ -6,7 +6,7 @@ on:
 jobs:
   build_addon:
     runs-on: windows-latest
-    if: "github.event.release.prerelease"
+    if: "!github.event.release.prerelease"
     steps:
       - uses: actions/checkout@v1
       - name: Set VERSION env
@@ -14,13 +14,13 @@ jobs:
       # Build with Mikero
       - name: Build with Mikero
         run: |
-          C:\Core_WIP.bat
+          C:\Core_Release.bat
       # Upload to Steam Workshop
       - uses: arma-actions/workshop-upload@v1
         with:
           appId: "107410" # default
-          itemId: "2837988642" # Id of item to update
-          contentPath: 'D:\SteamLibrary\steamapps\common\Arma 3\!Workshop\@CGQC - Core - WIP'
+          itemId: "Core_Release.bat" # Id of item to update
+          contentPath: 'P:\Max_dev\Mods\release\@CGQC'
           changelog: "Content of change notes"
         env:
           STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
