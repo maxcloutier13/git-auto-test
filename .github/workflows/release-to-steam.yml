@@ -16,9 +16,8 @@ jobs:
     #  uses: gruppe-adler/action-release-with-hemtt@2.2.0
     #  id: build
     - name: Build with Mikero
-    - run: |
+      run: |
         "C:\Program Files (x86)\Mikero Free\DePboTools\bin\pboProject.exe" -P "P:\CGQC" -Mod="D:\SteamLibrary\steamapps\common\Arma 3\!Workshop\@CGQC - Core - WIP"
-      name: Build
     - name: Upload mod
       uses: gruppe-adler/action-release-to-steam-ws@v1-beta
       with:
