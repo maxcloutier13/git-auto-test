@@ -18,7 +18,7 @@ jobs:
     - name: Upload mod
       uses: gruppe-adler/action-release-to-steam-ws@v1-beta
       with:
-        file_id: <INSERT FILE ID>
+        file_id: 2837988642
         username: "${{ secrets.STEAM_USERNAME }}"
         password: "${{ secrets.STEAM_PASSWORD }}"
         path: "${{ steps.build.outputs.release_path }}/@${{ steps.build.outputs.mod_name }}"
