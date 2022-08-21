@@ -13,7 +13,7 @@ jobs:
       # Build with Mikero
       - name: Build with Mikero
         run: |
-          echo "C:\Program Files (x86)\Mikero Free\DePboTools\bin\pboProject.exe" -P "P:\CGQC" -Mod="D:\SteamLibrary\steamapps\common\Arma 3\!Workshop\@CGQC - Core - WIP"
+          C:\Core_WIP.bat
       # Upload to Steam Workshop
       - uses: arma-actions/workshop-upload@v1
         with:
