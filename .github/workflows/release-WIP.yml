@@ -4,7 +4,7 @@ on:
     types: [published]
 
 jobs:
-  build_addon:
+  build_wip:
     runs-on: windows-latest
     if: "github.event.release.prerelease"
     steps:
@@ -14,14 +14,14 @@ jobs:
       # Build with Mikero
       - name: Build with Mikero
         run: |
-          C:\Core_WIP.bat
+          "C:\Core_WIP.bat"
       # Upload to Steam Workshop
       - uses: arma-actions/workshop-upload@v1
         with:
           appId: "107410" # default
           itemId: "2837988642" # Id of item to update
           contentPath: 'D:\SteamLibrary\steamapps\common\Arma 3\!Workshop\@CGQC - Core - WIP'
-          changelog: "Content of change notes"
+          changelog: "${{ github.event.release.body }}"
         env:
           STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
           STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
