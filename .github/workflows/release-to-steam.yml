@@ -21,7 +21,7 @@ jobs:
         file_id: 2837988642
         username: "${{ secrets.STEAM_USERNAME }}"
         password: "${{ secrets.STEAM_PASSWORD }}"
-        path: "E:\Pdrive\Max_dev\Mods\release\@CGQC"
-        name: "CGQC_Core"
+        path: E:\Pdrive\Max_dev\Mods\release\@CGQC
+        name: CGQC_Core
         change_notes_title: "${{ github.event.release.name }}"
         change_notes: "${{ github.event.release.body }}"
