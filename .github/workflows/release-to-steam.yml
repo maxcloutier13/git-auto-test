@@ -12,9 +12,9 @@ jobs:
     steps:
     - name: Checkout repo
       uses: actions/checkout@v2
-    - name: Build with HEMTT
-      uses: gruppe-adler/action-release-with-hemtt@2.2.0
-      id: build
+    #- name: Build with HEMTT
+    #  uses: gruppe-adler/action-release-with-hemtt@2.2.0
+    #  id: build
     - name: Upload mod
       uses: gruppe-adler/action-release-to-steam-ws@v1-beta
       with:
