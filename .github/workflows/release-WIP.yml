@@ -4,24 +4,15 @@ on:
     types: [published]
 
 jobs:
-  build_wip:
+  upload:
     runs-on: ubuntu-latest
     if: "github.event.release.prerelease"
     steps:
-      # Checkout code
-      - name: Checkout repo
-        uses: actions/checkout@v2
-      # Build code with Mikero
-      #- name: Build with Mikero
-      #  run: |
-      #    Core_WIP.bat
-      # Upload on workshop
-      - name: steam-workshop-upload
-        uses: weilbyte/steam-workshop-upload@v1
+      - uses: actions/checkout@v2
+      - uses: AnarkisGaming/workshop@v1
         with:
-          appid: 107410 # Game's Steam App ID
-          itemid: 2837988642 # Your mod's Steam Workshop ID
-          path: "release" # Path to your mod's folder from repository root
+          appID: 107410
+          publishedFileID: 2837988642
         env:
-          STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }} # Your Steam username
-          STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }} # Your Steam password
+          STEAM_ACCOUNT_NAME: ${{ secrets.accountname }}
+          STEAM_PASSWORD: ${{ secrets.password }}
