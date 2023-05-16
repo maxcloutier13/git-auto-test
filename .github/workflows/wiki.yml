@@ -11,9 +11,9 @@ jobs:
         run: |
           RELEASE_NOTES=$(curl -H "Authorization: Bearer ${{ secrets.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 }}" \
                              -H "Accept: application/vnd.github.v3+json" \
-                             "https://github.com/maxcloutier13/git-auto-test/releases/${{ github.repository }}/releases/latest" | \
+                             "https://api.github.com/repos/maxcloutier13/git-auto-test/releases/latest" | \
                              jq -r '.body')
       - name: Update wiki page
         run: |
           # Update the wiki page with release notes
-          echo "${RELEASE_NOTES}" >> https://github.com/maxcloutier13/CGQC/wiki/Release-notes
+          echo "${RELEASE_NOTES}" >> Release-notes.md
